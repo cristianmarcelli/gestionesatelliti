@@ -18,7 +18,7 @@ public class SatelliteController {
 	@Autowired
 	private SatelliteService satelliteService;
 
-	@GetMapping
+	@GetMapping("/listAll")
 	public ModelAndView listAll() {
 		ModelAndView mv = new ModelAndView();
 		List<Satellite> results = satelliteService.listAllElements();
