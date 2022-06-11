@@ -57,7 +57,7 @@
 					    	</dl>
 					    	
 					    	<dl class="row">
-							  <dt class="col-sm-3 text-right">Stato :</dt>
+							  <dt class="col-sm-3 text-right">Stato:</dt>
 							  <dd class="col-sm-9">${delete_satellite_attr.stato}</dd>
 					    	</dl>
 					    	
