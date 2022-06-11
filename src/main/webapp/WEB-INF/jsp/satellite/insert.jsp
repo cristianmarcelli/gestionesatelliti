@@ -55,7 +55,7 @@
 							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
-							<form:form modelAttribute="insert_satellite_attr" method="post" action="${pageContext.request.contextPath}/satellite/save" class="row g-3" novalidate="novalidate">
+							<form:form modelAttribute="insert_satellite_attr" method="post" action="save" class="row g-3" novalidate="novalidate">
 							
 							
 								<div class="col-md-6">
@@ -74,36 +74,39 @@
 									<form:errors  path="codice" cssClass="error_field" />
 								</div>
 							
-								<fmt:formatDate pattern='yyyy-MM-dd' var="parsedDate" type='date' value='${insert_satellite_attr.dataLancio}' />
+								<fmt:formatDate pattern='yyyy-MM-dd' var="parsedDateLancio" type='date' value='${insert_satellite_attr.dataLancio}' />
 								<div class="col-md-3">
-									<label for="dataLancio" class="form-label">Data Lancio</label>
+									<label for="dataLancio" class="form-label">Data di Lancio</label>
                         			<spring:bind path="dataLancio">
-	                        		<input class="form-control" id="dataLancio" type="date" placeholder="dd/MM/yy"
-	                            		title="formato : gg/mm/aaaa"  name="dataLancio" 
-	                            		value="${parsedDate}" >
+	                        		<input class="form-control ${status.error ? 'is-invalid' : ''}" id="dataLancio" type="date" placeholder="dd/MM/yy"
+	                            		title="formato : gg/mm/aaaa"  name="dataLancio"  
+	                            		value="${parsedDateLancio}" >
 		                            </spring:bind>
+	                            	<form:errors  path="dataLancio" cssClass="error_field" />
 								</div>
 								
-								<fmt:formatDate pattern='yyyy-MM-dd' var="parsedDate" type='date' value='${insert_satellite_attr.dataRientro}' />
+								<fmt:formatDate pattern='yyyy-MM-dd' var="parsedDateRientro" type='date' value='${insert_satellite_attr.dataRientro}' />
 								<div class="col-md-3">
-									<label for="dataRientro" class="form-label">Data Rientro</label>
+									<label for="dataRientro" class="form-label">Data di Rientro</label>
                         			<spring:bind path="dataRientro">
-	                        		<input class="form-control" id="dataRientro" type="date" placeholder="dd/MM/yy"
-	                            		title="formato : gg/mm/aaaa"  name="dataRientro" 
-	                            		value="${parsedDate}" >
+	                        		<input class="form-control ${status.error ? 'is-invalid' : ''}" id="dataRientro" type="date" placeholder="dd/MM/yy"
+	                            		title="formato : gg/mm/aaaa"  name="dataRientro"  
+	                            		value="${parsedDateRientro}" >
 		                            </spring:bind>
+	                            	<form:errors  path="dataRientro" cssClass="error_field" />
 								</div>
 								
 								<div class="col-md-3">
 									<label for="stato" class="form-label">Stato</label>
 								    <spring:bind path="stato">
-									    <select class="form-select" id="stato" name="stato">
+									    <select class="form-select ${status.error ? 'is-invalid' : ''}" id="stato" name="stato" required>
 									    	<option value="" selected> - Selezionare - </option>
 									    	<option value="IN_MOVIMENTO" ${insert_satellite_attr.stato == 'IN_MOVIMENTO'?'selected':''}>IN MOVIMENTO</option>
 									      	<option value="FISSO" ${insert_satellite_attr.stato == 'FISSO'?'selected':''}>FISSO</option>
 									      	<option value="DISATTIVATO" ${insert_satellite_attr.stato == 'DISATTIVATO'?'selected':''}>DISATTIVATO</option>
 								    	</select>
 								    </spring:bind>
+								    <form:errors  path="stato" cssClass="error_field" />
 								</div>
 								
 								
