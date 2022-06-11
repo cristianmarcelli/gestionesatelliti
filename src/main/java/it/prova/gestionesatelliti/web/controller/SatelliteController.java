@@ -165,4 +165,15 @@ public class SatelliteController {
 
 	}
 
+	@GetMapping("/disattivati")
+	public String disattivatiConDataRientroNull(ModelMap model) throws ParseException {
+
+		List<Satellite> results = satelliteService
+				.trovaSatellitiDisattivatiConDataRientroNull(StatoSatellite.DISATTIVATO);
+
+		model.addAttribute("satellite_list_attribute", results);
+		return "satellite/list";
+
+	}
+
 }

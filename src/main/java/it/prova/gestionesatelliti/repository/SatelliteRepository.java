@@ -11,6 +11,10 @@ import it.prova.gestionesatelliti.model.StatoSatellite;
 
 public interface SatelliteRepository extends CrudRepository<Satellite, Long>, JpaSpecificationExecutor<Satellite> {
 
+	// Lanciati da due anni con stato non disattivato
 	List<Satellite> findByDataLancioBeforeAndStatoNot(Date data, StatoSatellite statoDisattivato);
+
+	// disattivati ma con data rientro a null
+	List<Satellite> findByDataRientroNullAndStatoIs(StatoSatellite statoDisattivato);
 
 }

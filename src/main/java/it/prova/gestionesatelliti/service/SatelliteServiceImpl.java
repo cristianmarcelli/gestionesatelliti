@@ -62,16 +62,16 @@ public class SatelliteServiceImpl implements SatelliteService {
 			if (StringUtils.isNotEmpty(example.getDenominazione()))
 				predicates.add(cb.like(cb.upper(root.get("denominazione")),
 						"%" + example.getDenominazione().toUpperCase() + "%"));
-
+			
 			if (StringUtils.isNotEmpty(example.getCodice()))
 				predicates.add(cb.like(cb.upper(root.get("codice")), "%" + example.getCodice().toUpperCase() + "%"));
-
+			
 			if (example.getStato() != null)
 				predicates.add(cb.equal(root.get("stato"), example.getStato()));
-
+			
 			if (example.getDataLancio() != null)
 				predicates.add(cb.greaterThanOrEqualTo(root.get("dataLancio"), example.getDataLancio()));
-
+			
 			if (example.getDataRientro() != null)
 				predicates.add(cb.greaterThanOrEqualTo(root.get("dataRientro"), example.getDataRientro()));
 
@@ -84,8 +84,16 @@ public class SatelliteServiceImpl implements SatelliteService {
 	@Override
 	public List<Satellite> trovaSatellitiLanciatiDaPiuDiDueAnniENonDisattivati(Date data,
 			StatoSatellite statoDisattivato) {
-
+		
 		return repository.findByDataLancioBeforeAndStatoNot(data, statoDisattivato);
 	}
+
+	@Override
+	public List<Satellite> trovaSatellitiDisattivatiConDataRientroNull(StatoSatellite statoDisattivato) {
+		
+		return repository.findByDataRientroNullAndStatoIs(statoDisattivato);
+	}
+	
+	
 
 }

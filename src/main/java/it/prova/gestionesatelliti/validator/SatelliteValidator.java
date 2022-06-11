@@ -43,11 +43,11 @@ public class SatelliteValidator implements Validator {
 			errors.rejectValue("dataLancio", "dataRientro.primaDataLancio");
 		}
 		
-		// Per inserire lo stato bisogna inserire anche la data
-		if (satellite.getDataLancio() == null && satellite.getDataRientro() == null
-				&& satellite.getStato() != null) {
-			errors.rejectValue("stato", "stato.impossibileInserireSeNonSonoPresentiDate");
-		}
+//		// Per inserire lo stato bisogna inserire anche la data
+//		if (satellite.getDataLancio() == null && satellite.getDataRientro() == null
+//				&& satellite.getStato() != null) {
+//			errors.rejectValue("stato", "stato.impossibileInserireSeNonSonoPresentiDate");
+//		}
 
 	}
 
