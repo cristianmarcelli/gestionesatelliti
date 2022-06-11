@@ -73,7 +73,7 @@
 												<a class="btn btn-outline-danger btn-sm" href="${pageContext.request.contextPath}/satellite/delete/${satelliteItem.id }">Delete</a>
 												
 												<c:if test="${satelliteItem.getStato() == null}">
-													<a class="btn btn-outline-warning btn-sm" href="${pageContext.request.contextPath}/satellite/launch/${satelliteItem.id }">Lancia</a>
+													<a class="btn btn-outline-warning btn-sm" href="${pageContext.request.contextPath}/satellite/lancia/${satelliteItem.id }">Lancia</a>
 												</c:if>
 												
 												<c:if test="${satelliteItem.getStato() == 'IN_MOVIMENTO' ||  satelliteItem.getStato() == 'FISSO'}" >

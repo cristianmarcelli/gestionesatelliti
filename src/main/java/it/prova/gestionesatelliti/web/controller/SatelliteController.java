@@ -122,22 +122,35 @@ public class SatelliteController {
 		model.addAttribute("satellite_list_attribute", results);
 		return "satellite/list";
 	}
-	
-	@GetMapping("/launch/{idSatellite}")
-	public String launch(@PathVariable(required = true) Long idSatellite, Model model,
+
+	@GetMapping("/lancia/{idSatellite}")
+	public String lancia(@PathVariable(required = true) Long idSatellite, Model model,
 			RedirectAttributes redirectAttributes) {
-		
+
 		Satellite satellite = satelliteService.caricaSingoloElemento(idSatellite);
 		satellite.setStato(StatoSatellite.IN_MOVIMENTO);
 		satellite.setDataLancio(new Date());
-		
+
 		satelliteService.aggiorna(satellite);
-		
-		model.addAttribute("launch_satellite_attr", satellite);
 
 		redirectAttributes.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
 		return "redirect:/satellite/listAll";
-		
+
 	}
-	
+
+	@GetMapping("/rientra/{idSatellite}")
+	public String rientra(@PathVariable(required = true) Long idSatellite, Model model,
+			RedirectAttributes redirectAttributes) {
+
+		Satellite satellite = satelliteService.caricaSingoloElemento(idSatellite);
+		satellite.setStato(StatoSatellite.DISATTIVATO);
+		satellite.setDataRientro(new Date());
+
+		satelliteService.aggiorna(satellite);
+
+		redirectAttributes.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
+		return "redirect:/satellite/listAll";
+
+	}
+
 }
