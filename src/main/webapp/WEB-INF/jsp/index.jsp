@@ -65,18 +65,18 @@
 			        <div class="feature-icon bg-primary bg-gradient">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
 			        </div>
-			        <h2>Ricerca Satelliti</h2>
+			        <h2>Lanciati da più di due anni </h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="satellite/search" class="icon-link">
+			        <a href="satellite/lanciati" class="icon-link">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
 			      <div class="feature col">
 			        <div class="feature-icon bg-primary bg-gradient">
-			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
 			        </div>
-			        <h2>Inserisci Nuovo Satellite</h2>
+			        <h2>Disattivati ma non rientrati</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
 			        <a href="satellite/insert" class="icon-link">
 			          Vai alla funzionalità
@@ -85,9 +85,9 @@
 			      </div>
 			      <div class="feature col">
 			        <div class="feature-icon bg-primary bg-gradient">
-			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
 			        </div>
-			        <h2>Altra Funzione</h2>
+			        <h2>Satelliti in orbita fissi da più di 10 anni</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
 			        <a href="#" class="icon-link">
 			          Vai alla funzionalità

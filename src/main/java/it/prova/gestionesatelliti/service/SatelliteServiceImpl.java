@@ -1,6 +1,7 @@
 package it.prova.gestionesatelliti.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.criteria.Predicate;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.prova.gestionesatelliti.model.Satellite;
+import it.prova.gestionesatelliti.model.StatoSatellite;
 import it.prova.gestionesatelliti.repository.SatelliteRepository;
 
 @Service
@@ -60,16 +62,16 @@ public class SatelliteServiceImpl implements SatelliteService {
 			if (StringUtils.isNotEmpty(example.getDenominazione()))
 				predicates.add(cb.like(cb.upper(root.get("denominazione")),
 						"%" + example.getDenominazione().toUpperCase() + "%"));
-			
+
 			if (StringUtils.isNotEmpty(example.getCodice()))
 				predicates.add(cb.like(cb.upper(root.get("codice")), "%" + example.getCodice().toUpperCase() + "%"));
-			
+
 			if (example.getStato() != null)
 				predicates.add(cb.equal(root.get("stato"), example.getStato()));
-			
+
 			if (example.getDataLancio() != null)
 				predicates.add(cb.greaterThanOrEqualTo(root.get("dataLancio"), example.getDataLancio()));
-			
+
 			if (example.getDataRientro() != null)
 				predicates.add(cb.greaterThanOrEqualTo(root.get("dataRientro"), example.getDataRientro()));
 
@@ -77,6 +79,13 @@ public class SatelliteServiceImpl implements SatelliteService {
 		};
 
 		return repository.findAll(specificationCriteria);
+	}
+
+	@Override
+	public List<Satellite> trovaSatellitiLanciatiDaPiuDiDueAnniENonDisattivati(Date data,
+			StatoSatellite statoDisattivato) {
+
+		return repository.findByDataLancioBeforeAndStatoNot(data, statoDisattivato);
 	}
 
 }
