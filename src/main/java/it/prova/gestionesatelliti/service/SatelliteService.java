@@ -18,6 +18,4 @@ public interface SatelliteService {
 	
 	public List<Satellite> findByExample(Satellite example);
 	
-	//nuovimetodi
-
 }
