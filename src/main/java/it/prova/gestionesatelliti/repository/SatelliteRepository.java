@@ -17,4 +17,6 @@ public interface SatelliteRepository extends CrudRepository<Satellite, Long>, Jp
 	// disattivati ma con data rientro a null
 	List<Satellite> findByDataRientroNullAndStatoIs(StatoSatellite statoDisattivato);
 
+	// Rimasti in orbita 10 anni ma che ora sono fissi
+	List<Satellite> findByDataLancioBeforeAndStato(Date data, StatoSatellite statoFisso);
 }

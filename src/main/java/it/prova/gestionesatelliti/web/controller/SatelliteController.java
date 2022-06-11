@@ -175,5 +175,16 @@ public class SatelliteController {
 		return "satellite/list";
 
 	}
+	
+	@GetMapping("/fissi")
+	public String fissiInOrbitaDaDieciAnni(ModelMap model) throws ParseException {
+
+		List<Satellite> results = satelliteService.trovaSatellitiInOrbitaDaDieciAnniConStatoFisso(
+				new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2012"), StatoSatellite.FISSO);
+
+		model.addAttribute("satellite_list_attribute", results);
+		return "satellite/list";
+
+	}
 
 }

@@ -24,4 +24,6 @@ public interface SatelliteService {
 	
 	public List<Satellite> trovaSatellitiDisattivatiConDataRientroNull(StatoSatellite statoDisattivato);
 	
+	public List<Satellite> trovaSatellitiInOrbitaDaDieciAnniConStatoFisso(Date data, StatoSatellite statoFisso);
+	
 }

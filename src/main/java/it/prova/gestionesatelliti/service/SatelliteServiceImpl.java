@@ -93,6 +93,12 @@ public class SatelliteServiceImpl implements SatelliteService {
 		
 		return repository.findByDataRientroNullAndStatoIs(statoDisattivato);
 	}
+
+	@Override
+	public List<Satellite> trovaSatellitiInOrbitaDaDieciAnniConStatoFisso(Date data, StatoSatellite statoFisso) {
+		
+		return repository.findByDataLancioBeforeAndStato(data, statoFisso);
+	}
 	
 	
 
