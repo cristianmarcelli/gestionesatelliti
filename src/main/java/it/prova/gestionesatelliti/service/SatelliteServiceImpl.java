@@ -46,11 +46,6 @@ public class SatelliteServiceImpl implements SatelliteService {
 
 	@Override
 	@Transactional
-	public void rimuovi(Satellite satelliteInstance) {
-	}
-
-	@Override
-	@Transactional
 	public void rimuovi(Long idSatellite) {
 		repository.deleteById(idSatellite);
 	}
